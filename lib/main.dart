@@ -6,13 +6,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 import 'package:newrelic_mobile/config.dart';
 import 'package:newrelic_mobile/newrelic_mobile.dart';
+import 'package:newrelic_mobile/newrelic_navigation_observer.dart';
 
 void main() {
   var appToken = "";
   if (Platform.isIOS) {
-    appToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-NRMA';
+    appToken = 'AA5b1b16e53d1fc3f85938dcb232fea7ca9722a45c-NRMA';
   } else if (Platform.isAndroid) {
-    appToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-NRMA';
+    appToken = 'AA6f6fe24afa2b193369bed4c485a6a2ae03a58a29-NRMA';
   }
 
   Config config = Config(
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
+        navigatorObservers: [NewRelicNavigationObserver()],
         title: 'Lifebottle App',
         theme: ThemeData(
           useMaterial3: true,

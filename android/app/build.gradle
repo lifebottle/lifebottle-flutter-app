@@ -67,13 +67,5 @@ flutter {
     source '../..'
 }
 
-repositories {
-  mavenCentral()
-}
-
-apply plugin: 'android'
-apply plugin: 'newrelic'
-
 dependencies {
-  implementation 'com.newrelic.agent.android:android-agent:7.3.1'
 }
